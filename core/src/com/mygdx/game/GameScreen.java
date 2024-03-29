@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 public class GameScreen implements Screen {
@@ -32,6 +33,7 @@ public class GameScreen implements Screen {
 	
 	
 	Sprite backgroundSprite;
+	private Music backgroundMusic;
 	
 	// GameScreen(Game game) {
 	 //       this.game = game;
@@ -55,6 +57,12 @@ public class GameScreen implements Screen {
 		create();
 	}
 	public void create () {
+	    backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
+	    backgroundMusic.setVolume(0.2f);
+        // Loop nhạc (nếu bạn muốn nó phát liên tục)
+        backgroundMusic.setLooping(true);
+        // Play nhạc
+        backgroundMusic.play();
 		 backgroundTexture = new Texture("back3.jpg"
 		 		+ ""
 		 		+ "");

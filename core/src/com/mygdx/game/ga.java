@@ -42,7 +42,7 @@ public class ga {
 	        frames.add(new TextureRegion(texture1));
 	        frames.add(new TextureRegion(texture2));
 	        frames.add(new TextureRegion(texture3));
-	        float frameduration = 0.1f;
+	        float frameduration = 0.08f;
 	        animation = new Animation<TextureRegion>(frameduration, frames);
 	        position = _position;
 	        currentFrame = animation.getKeyFrame(elapsedTime, true);

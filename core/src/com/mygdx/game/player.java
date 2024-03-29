@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -29,6 +30,7 @@ public class player {
 	public float speed_bullet =950;
 	public boolean gameOver =false;
 	Texture dan;
+	private Sound gun  = Gdx.audio.newSound(Gdx.files.internal("gun.mp3"));
 	
 	ArrayList<dan> dans;
 	
@@ -57,6 +59,7 @@ public void Update (float detalTime) {
 	if(Gdx.input.isButtonJustPressed(1)||Gdx.input.isKeyPressed(Keys.SPACE)) { 
 	//	if(Gdx.input.isKeyPressed(Keys.SPACE)) { 
 
+        gun.play(0.2f);
 	    dans.add(new dan(dan,p));
 		p_bullet.x=p.x+sprite.getWidth()/2-sprite_bullet.getWidth()/2;
 		

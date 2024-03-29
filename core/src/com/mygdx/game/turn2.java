@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class turn2 {
 	ga[] gas  =new ga[20];
-	private Sound chickendeath  = Gdx.audio.newSound(Gdx.files.internal("chickendeath.mp3"));;
+	private Sound chickendeath  = Gdx.audio.newSound(Gdx.files.internal("chickendeath.mp3"));
 	player play;gathuong[] list =new gathuong[20];SpriteBatch batch;int demturn1=0,dem=0;Texture img	 = new Texture("4. Gà đặc nhiệm.png");
 	float elapsedTime0 = 0, elapsedTime = 0,elapsedTime2 = 0,elapsedTime3 = 0,elapsedTime4 = 0;gathuong[] list2 =new gathuong[20]; gathuong[] list3 = new gathuong[20]; gathuong[] list4 = new gathuong[20];
 	int dem2=0,dem3=0,dem4=0;
@@ -106,7 +106,7 @@ public class turn2 {
 			
 			
 			gas[i].Alive=false;
-			chickendeath.play();
+			//chickendeath.play();
 			demturn1++;
 			//break;
 		}}

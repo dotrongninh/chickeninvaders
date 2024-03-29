@@ -18,7 +18,7 @@ public class gathuong extends ga{
 	public gathuong(Vector2 _position, Texture img,String a1,String a2,String a3,float x) {
 		super(_position, img,x,a1,a2,a3);
 		// TODO Auto-generated constructor stub
-		 startTime = TimeUtils.nanoTime();
+		 //startTime = TimeUtils.nanoTime();
 		 
 		 
 	}
@@ -27,6 +27,20 @@ public class gathuong extends ga{
 		
 		super.draw(batch);
 	//	de_Trung(texture1, batch);
+		  time += Gdx.graphics.getDeltaTime();
+		   trungs.removeIf(bullet ->( bullet.p_trung.y < 0||bullet.p_trung.y >Gdx.graphics.getHeight()||bullet.p_trung.x < 0||bullet.p_trung.x > Gdx.graphics.getWidth()));
+//	       if(Gdx.input.isButtonJustPressed(0)) {
+	       if(time>=MathUtils.random(3,6)) {
+	    	   if(MathUtils.randomBoolean()) {
+	    		   
+	    	   
+	    	   trungs.add(new trung_ga(new Texture("trung_ga.png"), position));
+	    	   
+	    			 time =0;
+	    	   }
+	       
+	       }
+		
 		for (trung_ga trung : trungs) {
 	        if (true) {
 	            trung.Draw(batch);
@@ -43,20 +57,9 @@ public class gathuong extends ga{
 	     position.x+=300*deltaTime;
 	 	super.elapsedTime += deltaTime;
        super.currentFrame = animation.getKeyFrame(elapsedTime, true);
+
        
-       if(Gdx.input.isButtonJustPressed(0)) {
-    	   trungs.add(new trung_ga(new Texture("trung_ga.png"), position));
-    	   
-    			 
-    	    
-       
-       }
-       
-       for (trung_ga trung : trungs) {
-           if (true ) {
-               trung.Update(deltaTime);
-           }
-       }
+   
     	        
 		
 	}
