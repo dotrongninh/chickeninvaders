@@ -33,7 +33,8 @@ public class player {
 	private Sound gun  = Gdx.audio.newSound(Gdx.files.internal("gun.mp3"));
 	
 	ArrayList<dan> dans;
-	
+	int score = 10;
+	int live = 5;
 public player(Texture img,Texture img2) {
 	listBullet = new ArrayList<Sprite>();
 	listVector=new ArrayList<Vector2>();
@@ -57,7 +58,7 @@ public void Update (float detalTime) {
 //	float bulletSpeedX = 0;float bulletSpeedY = 0;
 	
 	if(Gdx.input.isButtonJustPressed(1)||Gdx.input.isKeyPressed(Keys.SPACE)) { 
-	//	if(Gdx.input.isKeyPressed(Keys.SPACE)) { 
+		if(score>0) { 
 
         gun.play(0.2f);
 	    dans.add(new dan(dan,p));
@@ -73,6 +74,7 @@ public void Update (float detalTime) {
         Sprite newBullet = new Sprite(sprite_bullet);
         newBullet.setPosition(p_bullet.x,p_bullet.y);
         listBullet.add(newBullet);
+        score--;}
 		
 		
 		

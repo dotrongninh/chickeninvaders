@@ -3,7 +3,9 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -16,7 +18,7 @@ import com.badlogic.gdx.audio.Sound;
 public class GameScreen implements Screen {
 	private Game game;
 	SpriteBatch batch;float elapsedTime = 0;int dem=0;
-	float time = 0;
+	float time = 0;float time2 =0;
 	Texture img ,img2,imgga,backgroundTexture;
 	int NumWidth_ga = 7;
 	int NumHeight_ga=2;
@@ -34,6 +36,9 @@ public class GameScreen implements Screen {
 	
 	Sprite backgroundSprite;
 	private Music backgroundMusic;
+	private BitmapFont font;
+   
+ 
 	
 	// GameScreen(Game game) {
 	 //       this.game = game;
@@ -55,6 +60,11 @@ public class GameScreen implements Screen {
 	public GameScreen(Game game2) {
 		this.game = game2;
 		create();
+		  font = new BitmapFont();
+	        font.setColor(Color.WHITE); // Màu của văn bản
+	        font.getData().setScale(2); // Tăng kích thước của văn bản (tuỳ chọn)
+	        
+	        //score = 0;
 	}
 	public void create () {
 	    backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
@@ -120,12 +130,21 @@ public class GameScreen implements Screen {
 //	@Override
 	public void render () {
 		ScreenUtils.clear(1, 0, 0, 1);
+		 Gdx.gl.glClearColor(0, 0, 0, 1);
+	        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(backgroundTexture, 0, 0);
+		time2 +=Gdx.graphics.getDeltaTime();
+		if(time2>=4f) {
+			play.score+=5;
+			time2 = 0;
+		}
+		
 		
 		time += Gdx.graphics.getDeltaTime();
 		
-		
+		 font.draw(batch, "Score: " + play.score, 20, Gdx.graphics.getHeight() - 20);
+		 font.draw(batch, "Lives: " + play.live, 20, Gdx.graphics.getHeight() - 50);
 		  
 		play.Draw(batch);
 		

@@ -12,12 +12,14 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class turn2 {
 	ga[] gas  =new ga[20];
-	private Sound chickendeath  = Gdx.audio.newSound(Gdx.files.internal("chickendeath.mp3"));
+	private Sound chickendeath  = Gdx.audio.newSound(Gdx.files.internal("chickendeath.mp3")); Texture tauno=new Texture("tau_no.png");Texture t= new Texture("phicochiendau.png");float elapsedTimex = 0.0f;
 	player play;gathuong[] list =new gathuong[20];SpriteBatch batch;int demturn1=0,dem=0;Texture img	 = new Texture("4. Gà đặc nhiệm.png");
 	float elapsedTime0 = 0, elapsedTime = 0,elapsedTime2 = 0,elapsedTime3 = 0,elapsedTime4 = 0;gathuong[] list2 =new gathuong[20]; gathuong[] list3 = new gathuong[20]; gathuong[] list4 = new gathuong[20];
 	int dem2=0,dem3=0,dem4=0;
 	 public turn2(player a,SpriteBatch b) {
 		 play=a;batch=b;
+		
+		
 		 
 	 }
 	 
@@ -106,6 +108,7 @@ public class turn2 {
 			
 			
 			gas[i].Alive=false;
+			
 			//chickendeath.play();
 			demturn1++;
 			//break;
@@ -113,7 +116,16 @@ public class turn2 {
 		
 		if(play.sprite.getBoundingRectangle().overlaps(gas[i].sprite.getBoundingRectangle())) {
 			// play.gameOver = true;
-		}}
+			//play.sprite.setTexture(tauno);
+			hoi_sinh();
+			
+			
+			gas[i].Alive=false;
+			
+			play.live--;
+		}
+		
+		}
 
 	
 	}
@@ -159,7 +171,9 @@ public class turn2 {
 			}}
 			
 			if(play.sprite.getBoundingRectangle().overlaps(list[i].sprite.getBoundingRectangle())) {
-				play.gameOver = true;
+				//play.gameOver = true;
+				list[i].Alive=false;
+				play.live--;
 			}}}   	  
 		
     	  return demturn1;
@@ -209,7 +223,9 @@ public class turn2 {
     			}}
     			
     			if(play.sprite.getBoundingRectangle().overlaps(list2[i].sprite.getBoundingRectangle())) {
-    				play.gameOver = true;
+    				//play.gameOver = true;
+    				list2[i].Alive=false;
+    				play.live--;
     			}}}   	  
         	  return demturn1;
     	
@@ -244,7 +260,9 @@ public class turn2 {
   				}}
   				
   				if(play.sprite.getBoundingRectangle().overlaps(list3[i].sprite.getBoundingRectangle())) {
-  					play.gameOver = true;
+  					//play.gameOver = true;
+  					list3[i].Alive=false;
+  					play.live--;
   				}}}   	  
   			
   	    	//  return demturn1;
@@ -282,11 +300,38 @@ public class turn2 {
   				}}
   				
   				if(play.sprite.getBoundingRectangle().overlaps(list4[i].sprite.getBoundingRectangle())) {
-  					play.gameOver = true;
+  					//play.gameOver = true;
+  					list4[i].Alive=false;
+  					play.live--;
   				}}}   	  
   			
   	    	//  return demturn1;
     	  
+      }
+      
+      public void hoi_sinh() {
+    	  
+    	  
+    	 
+    	  
+    
+    	  // Update sprite trong vòng lặp chính của game
+    	 if (elapsedTimex < 1) {
+    	      // Tính thời gian đã trôi qua
+    		 play.sprite.setTexture(tauno);
+    	      elapsedTimex += Gdx.graphics.getDeltaTime();; // Được cập nhật bằng deltaTime từ game loop
+
+    	      // Làm mờ texture hiện tại theo tỉ lệ của thời gian đã trôi qua
+    	    
+
+    	 
+    	  }else {
+
+    	  // Sau khi chuyển đổi xong, đặt texture của sprite trở lại texture A
+    	  play.sprite.setTexture(t);
+    	  elapsedTimex=0;
+    	  }
+  
       }
       
      

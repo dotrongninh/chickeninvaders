@@ -119,4 +119,9 @@ public class ga {
         // Thiết lập tốc độ di chuyển
         velocity.set(   MathUtils.random(20, 50), MathUtils.random(20, 50));
     }
+    
+    public void dispose () {
+		
+		
+	}
 }
