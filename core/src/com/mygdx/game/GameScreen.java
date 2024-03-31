@@ -139,6 +139,8 @@ public class GameScreen implements Screen {
 			play.score+=5;
 			time2 = 0;
 		}
+		if(play.live==0)
+			play.gameOver =true;
 		
 		
 		time += Gdx.graphics.getDeltaTime();

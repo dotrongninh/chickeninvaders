@@ -14,8 +14,9 @@ import com.badlogic.gdx.math.Vector2;
 
 
 public class player {
-	int DemBullet=0;
+	int DemBullet=0; int  e = 0;
 	float bulletSpeedX ;float bulletSpeedY ;int i=0;
+	 Texture tauno=new Texture("tau_no.png");Texture t= new Texture("phicochiendau.png");
 	  public ArrayList<Sprite> listBullet;
 	  public ArrayList<Vector2> listVector;
 	public float shootingAngle = 0.0f;
@@ -133,6 +134,28 @@ public void Update (float detalTime) {
     }
     
 }
+   public void time_dead() {
+	  
+	 //  e++;
+	 //  if(e%2f==0) {
+		   sprite.setTexture(tauno);
+		   time_dead2();
+		   
+//	   }else {
+//		   sprite.setTexture(tauno); 
+//	   }
+	   
+   }
+   
+   
+   public void time_dead2() {
+		  float x=0;
+		  x+=Gdx.graphics.getDeltaTime();
+	   
+	   if(x>=0.01f) {
+		   sprite.setTexture(t);
+		   
+	   }}
 
 	public void Draw(SpriteBatch batch) {
 		Update(Gdx.graphics.getDeltaTime());

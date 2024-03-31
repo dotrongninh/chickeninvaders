@@ -16,6 +16,8 @@ public class turn2 {
 	player play;gathuong[] list =new gathuong[20];SpriteBatch batch;int demturn1=0,dem=0;Texture img	 = new Texture("4. Gà đặc nhiệm.png");
 	float elapsedTime0 = 0, elapsedTime = 0,elapsedTime2 = 0,elapsedTime3 = 0,elapsedTime4 = 0;gathuong[] list2 =new gathuong[20]; gathuong[] list3 = new gathuong[20]; gathuong[] list4 = new gathuong[20];
 	int dem2=0,dem3=0,dem4=0;
+	
+	
 	 public turn2(player a,SpriteBatch b) {
 		 play=a;batch=b;
 		
@@ -104,6 +106,7 @@ public class turn2 {
 			   
 		if(bullet.sprite_bullet.getBoundingRectangle().overlaps(gas[i].sprite.getBoundingRectangle())) {
 			play.p_bullet.y=10000;
+			bullet.p_bullet.y=10000;
 		
 			
 			
@@ -116,14 +119,18 @@ public class turn2 {
 		
 		if(play.sprite.getBoundingRectangle().overlaps(gas[i].sprite.getBoundingRectangle())) {
 			// play.gameOver = true;
-			//play.sprite.setTexture(tauno);
-			hoi_sinh();
+			play.sprite.setTexture(tauno);
+			//hoi_sinh();
 			
 			
-			gas[i].Alive=false;
+			
+			
 			
 			play.live--;
+			gas[i].Alive=false;
+			play.time_dead();
 		}
+		
 		
 		}
 
@@ -163,7 +170,7 @@ public class turn2 {
 					   
 					if(bullet.sprite_bullet.getBoundingRectangle().overlaps(list[i].sprite.getBoundingRectangle())) {
 				play.p_bullet.y=10000;
-				
+				bullet.p_bullet.y=10000;
 				
 			
 				list[i].Alive=false;demturn1++;
@@ -174,7 +181,15 @@ public class turn2 {
 				//play.gameOver = true;
 				list[i].Alive=false;
 				play.live--;
-			}}}   	  
+			}
+			for(trung_ga trung : list[i].trungs)
+			if(play.sprite.getBoundingRectangle().overlaps(trung.trung.getBoundingRectangle())) {
+				//play.gameOver = true;
+				list[i].Alive=false;
+				play.live--;
+			}
+			
+			}}   	  
 		
     	  return demturn1;
 	
@@ -215,7 +230,7 @@ public class turn2 {
     					   
     					if(bullet.sprite_bullet.getBoundingRectangle().overlaps(list2[i].sprite.getBoundingRectangle())) {
     				play.p_bullet.y=10000;
-    				
+    				bullet.p_bullet.y=10000;
     				
     			
     				list2[i].Alive=false;demturn1++;
@@ -226,7 +241,14 @@ public class turn2 {
     				//play.gameOver = true;
     				list2[i].Alive=false;
     				play.live--;
-    			}}}   	  
+    			}
+    			for(trung_ga trung : list2[i].trungs)
+    				if(play.sprite.getBoundingRectangle().overlaps(trung.trung.getBoundingRectangle())) {
+    					//play.gameOver = true;
+    					list[i].Alive=false;
+    					play.live--;
+    				}
+    			}}   	  
         	  return demturn1;
     	
     }
@@ -254,7 +276,7 @@ public class turn2 {
   					   
   						if(bullet.sprite_bullet.getBoundingRectangle().overlaps(list3[i].sprite.getBoundingRectangle())) {
   					play.p_bullet.y=10000;
-  
+  					bullet.p_bullet.y=10000;
   					list3[i].Alive=false;demturn1++;
   					//break;
   				}}
@@ -263,7 +285,14 @@ public class turn2 {
   					//play.gameOver = true;
   					list3[i].Alive=false;
   					play.live--;
-  				}}}   	  
+  				}
+  				for(trung_ga trung : list3[i].trungs)
+  					if(play.sprite.getBoundingRectangle().overlaps(trung.trung.getBoundingRectangle())) {
+  						//play.gameOver = true;
+  						list[i].Alive=false;
+  						play.live--;
+  					}
+  				}}   	  
   			
   	    	//  return demturn1;
     	  
@@ -294,6 +323,7 @@ public class turn2 {
   					   
   						if(bullet.sprite_bullet.getBoundingRectangle().overlaps(list4[i].sprite.getBoundingRectangle())) {
   					play.p_bullet.y=10000;
+  					bullet.p_bullet.y=10000;
   
   					list4[i].Alive=false;demturn1++;
   					//break;
@@ -303,7 +333,14 @@ public class turn2 {
   					//play.gameOver = true;
   					list4[i].Alive=false;
   					play.live--;
-  				}}}   	  
+  				}
+  				for(trung_ga trung : list4[i].trungs)
+  					if(play.sprite.getBoundingRectangle().overlaps(trung.trung.getBoundingRectangle())) {
+  						//play.gameOver = true;
+  						list4[i].Alive=false;
+  						play.live--;
+  					}
+  				}}   	  
   			
   	    	//  return demturn1;
     	  

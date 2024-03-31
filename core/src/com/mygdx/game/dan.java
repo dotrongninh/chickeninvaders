@@ -10,7 +10,7 @@ public class dan {
 	public Sprite sprite_bullet;public Vector2 p_bullet;
 	public float speed_bullet =950;
 	public dan(Texture img,Vector2 p) {
-		p_bullet=new Vector2(p.x,p.y);
+		p_bullet=new Vector2(p.x+50,p.y+100);
 		sprite_bullet=new Sprite(img);
 		sprite_bullet.setScale(0.8f);
 	}
@@ -27,6 +27,7 @@ public class dan {
 	public void Update (float detalTime) {
 		p_bullet.y += detalTime*speed_bullet;
 	}
+	
 	
 	
 }
