@@ -78,13 +78,13 @@ public class ga {
 			    randomValue2 = MathUtils.random(0, 200);
 			}
 			
-	        position.x += randomValue * deltaTime*0.7f;
+	    //    position.x += randomValue * deltaTime*0.7f;
 	        position.y += randomValue2 * deltaTime*0.7f;
 	        j++;
 	        i++;
 		}
 		else {
-			 position.x += randomValue * deltaTime;
+			// position.x += randomValue * deltaTime;
 		        position.y += randomValue2 * deltaTime;
 		        j++;
 		        if(j>=0) {
@@ -114,6 +114,12 @@ public class ga {
         // Điều kiện kiểm tra sự sống/còn tồn tại của đối tượng "ga"
         
     }
+	public void updatePosition_1(float deltaTime) {
+		
+	}
+	
+	
+	
 
     public void setVelocity(float vx, float vy) {
         // Thiết lập tốc độ di chuyển

@@ -12,7 +12,7 @@ public class trung_ga {
 	 boolean Alive = false;
 	public trung_ga(Texture img ,Vector2 p) {
 		trung=new Sprite(img);
-		p_trung=new Vector2(p.x,p.y);
+		p_trung=new Vector2(p.x+100,p.y);
 		trung.setScale(1);
 		
 	}

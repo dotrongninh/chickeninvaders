@@ -34,8 +34,9 @@ public class player {
 	private Sound gun  = Gdx.audio.newSound(Gdx.files.internal("gun.mp3"));
 	
 	ArrayList<dan> dans;
-	int score = 10;
+	int score = 0;
 	int live = 5;
+	int bullets=10;
 public player(Texture img,Texture img2) {
 	listBullet = new ArrayList<Sprite>();
 	listVector=new ArrayList<Vector2>();
@@ -59,7 +60,7 @@ public void Update (float detalTime) {
 //	float bulletSpeedX = 0;float bulletSpeedY = 0;
 	
 	if(Gdx.input.isButtonJustPressed(1)||Gdx.input.isKeyPressed(Keys.SPACE)) { 
-		if(score>0) { 
+		if(bullets>0) { 
 
         gun.play(0.2f);
 	    dans.add(new dan(dan,p));
@@ -75,7 +76,7 @@ public void Update (float detalTime) {
         Sprite newBullet = new Sprite(sprite_bullet);
         newBullet.setPosition(p_bullet.x,p_bullet.y);
         listBullet.add(newBullet);
-        score--;}
+        bullets--;}
 		
 		
 		
@@ -90,10 +91,10 @@ public void Update (float detalTime) {
 //		    p_bullet.y += bulletSpeedY;
 	}
 	
-	if(Gdx.input.isKeyPressed(Keys.A)) p.x-=detalTime*speed*1.9;
-	if(Gdx.input.isKeyPressed(Keys.D)) p.x+=detalTime*speed*1.9;
-	if(Gdx.input.isKeyPressed(Keys.W)) p.y+=detalTime*speed*1.9;
-	if(Gdx.input.isKeyPressed(Keys.S)) p.y-=detalTime*speed*1.9;
+	if(Gdx.input.isKeyPressed(Keys.A)|| Gdx.input.isKeyPressed(Keys.LEFT)) p.x-=detalTime*speed*1.9;
+	if(Gdx.input.isKeyPressed(Keys.D)|| Gdx.input.isKeyPressed(Keys.RIGHT)) p.x+=detalTime*speed*1.9;
+	if(Gdx.input.isKeyPressed(Keys.W)|| Gdx.input.isKeyPressed(Keys.UP)) p.y+=detalTime*speed*1.9;
+	if(Gdx.input.isKeyPressed(Keys.S)|| Gdx.input.isKeyPressed(Keys.DOWN)) p.y-=detalTime*speed*1.9;
 	if(p.x- (sprite.getWidth()*sprite.getScaleX()/2) <-100) p.x=sprite.getWidth()*sprite.getScaleX()/2-100;
 	if(p.x+ (sprite.getWidth()*sprite.getScaleX()/2) >Gdx.graphics.getWidth()-60) p.x=Gdx.graphics.getWidth()-sprite.getWidth()*sprite.getScaleX()/2-60;
 	if(p.y- (sprite.getHeight()*sprite.getScaleX()/2) <-140) p.y=sprite.getHeight()*sprite.getScaleX()/2-140;

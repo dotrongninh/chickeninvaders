@@ -54,7 +54,7 @@ public class gathuong extends ga{
 	
 	public void updatePosition1(float deltaTime) {
 		//super.updatePosition(deltaTime);
-	     position.x+=300*deltaTime;
+	     position.x+=200*deltaTime;
 	 	super.elapsedTime += deltaTime;
        super.currentFrame = animation.getKeyFrame(elapsedTime, true);
 
@@ -65,7 +65,7 @@ public class gathuong extends ga{
 	}
 	public void updatePosition2(float deltaTime) {
 		//super.updatePosition(deltaTime);
-	     position.x-=300*deltaTime;
+	     position.x-=200*deltaTime;
 	     super.elapsedTime += deltaTime;
 	       super.currentFrame = animation.getKeyFrame(elapsedTime, true);
 	    	             
